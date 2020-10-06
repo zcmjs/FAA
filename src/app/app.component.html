@@ -23,18 +23,15 @@
       placeholder="Dodaj zadanie i datę wykonania"
       (keyup)="(0)"
       #nameInput
+      [(ngModel)]="taskName"
     />
-    <input class="col s2 disabled" type="date" #dateInput (change)="0"/>
+    <input class="col s2 disabled" type="date" [(ngModel)]="taskDate"/>
     <!--    <button class="btn-floating" (click)="createTask()">+</button>-->
     <!--    ponizej odwoluje sie do wartosci referencji ktora zostala utworzona-->
     <!--    Do jednego pola clic, można przypisać filka eventow, oddzielonych ;-->
     <button class="btn-floating"
-            [disabled]="!nameInput.value.length || !dateInput.value.length"
-            (click)="
-            createTask(nameInput.value, dateInput.value);
-            createTask2();
-            nameInput.value='';
-            dateInput.value=''"
+            [disabled]="taskName.length && !taskDate"
+            (click)="createTask()"
     >
       +
     </button>
@@ -75,14 +72,10 @@
 
 <hr/>
 
-<div style="border: 1px solid black; margin: 20px">
-  <!--  Change detection uruchamia sie przy operacjach asynchronicznych. dlatego stosujemy ten trick z (input)="(0)"-->
-  <input #blurExample (input)="(0)" (blur)="blurExample.value = ''"> <br/>
-  Blur example {{blurExample.value}}
-</div>
+::{{exampleName}}::
 
-<!--Angular domyslnie blokuje niebezpieczne elemnty. Aby móc wywołaćtaki, trzeba skorzystać z DomSanitizer-->
-<!--https://angular.io/api/platform-browser/DomSanitizer-->
-<!--<div [innerHTML]="notSanitizedScript"></div>-->
-<!--//Przyklad uzycia-->
-<!--<div [innerHTML]="sanitizedScript"></div>-->
+<input type="text"
+       [value]="exampleName"
+       (input) = "exampleName = $event.target.value"
+/>
+<button  class="btn red" (click)="ownNgModel()">Own ngModel</button>

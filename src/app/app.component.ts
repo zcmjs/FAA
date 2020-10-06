@@ -8,6 +8,8 @@ import {DomSanitizer, SafeHtml, SafeUrl} from '@angular/platform-browser';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  taskName = 'Sugerowane codzienne zadanie';
+  taskDate: string;
   readonly notSanitizedScript = '<script>alert(1)</script>';
   readonly sanitizedScript: any;
   // taskName: string;
@@ -31,6 +33,10 @@ export class AppComponent {
     },
   ];
   blackDiv: 'red';
+  // ngModel działa na zasadzie property binding i event binding
+  // ngModel działa tylko z elementami formularza jak input, textarea, select
+  // z pomocą ControlValueAccessor można samemu stworzyć rozbudowane elementy formularzy
+  exampleName: string; //Przykład własnego ngModel
 
   clearTasks(): void {
     this.tasks = [];
@@ -56,13 +62,15 @@ export class AppComponent {
     // this.taskName = target.value;
   }
 
-  createTask(name: string, date: string): void {
+  createTask(): void {
     const task: ITask = {
-      name,
-      deadline: date,
+      name: this.taskName,
+      deadline: this.taskDate,
       done: false
     }
     this.tasks.push(task);
+    this.taskName = '';
+    this.taskDate = '';
   }
 
   createTask2(): void {
@@ -70,6 +78,7 @@ export class AppComponent {
   }
 
 
-
-
+  ownNgModel() {
+    this.exampleName = '';
+  }
 }
