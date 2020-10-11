@@ -37,7 +37,9 @@
     </button>
   </div>
 
-  <ul class="collection">
+
+
+  <ul class="collection" *ngIf="tasks.length > 0; else noTasks">
     <li class="collection-item row" *ngFor="let task of tasks; let index = index">
       <span class="col s10"> {{index + 1}}. {{task.name}} - {{task.deadline}}</span>
       <div class="col s2 right-align">
@@ -51,7 +53,12 @@
     </li>
   </ul>
 
-  <h1>Dzisiaj brak zadań :-)</h1>
+  <ng-template #noTasks>
+    <h2>Dzisiaj brak zadań ;-)</h2>
+    <div>Możesz wykurwiać na wykop</div>
+  </ng-template>
+
+
   <!--  można odwolac się poprzez metode lub wywolac prosty kod-->
   <!--  <button class="btn red" (click)="clearTasks()" >Wyczyść</button>-->
   <button [disabled]="!tasks.length"  class="btn red" (click)="tasks = []">Wyczyść</button>
@@ -79,3 +86,23 @@
        (input) = "exampleName = $event.target.value"
 />
 <button  class="btn red" (click)="ownNgModel()">Own ngModel</button>
+
+
+<br/>
+==================================================================================================
+<br/>
+
+<container-element [ngSwitch]="valex">
+  <span *ngSwitchCase="1">1</span>
+  <span *ngSwitchCase="2">2</span>
+  <span *ngSwitchCase="3">3</span>
+  <span *ngSwitchCase="4">4</span>
+  <span *ngSwitchCase="5">5</span>
+  <span *ngSwitchDefault>...</span>
+</container-element>
+
+<br/>
+
+<div *ngIf="condition; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template>

@@ -12,6 +12,7 @@ export class AppComponent {
   taskDate: string;
   readonly notSanitizedScript = '<script>alert(1)</script>';
   readonly sanitizedScript: any;
+  isSuperDay = true;
   // taskName: string;
   focusExample: string
   config: { [key: string]: string | Date } = null;
@@ -37,6 +38,9 @@ export class AppComponent {
   // ngModel działa tylko z elementami formularza jak input, textarea, select
   // z pomocą ControlValueAccessor można samemu stworzyć rozbudowane elementy formularzy
   exampleName: string; //Przykład własnego ngModel
+  valex = 2;
+  condition = true;
+
 
   clearTasks(): void {
     this.tasks = [];
