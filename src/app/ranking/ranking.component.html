@@ -1,0 +1,12 @@
+<div class="col s12">
+  <h5>{{isBest ? 'Najlepsze' : 'Najgorsze'}}</h5>
+  <div class="collection">
+    <ng-container *ngFor="let quotation of quotes">
+      <p class="collection-item" *ngIf="isBest? quotation.votes > 0 : quotation.votes < 0">
+        <span class="blue lighten-4 badge">{{quotation.votes}}</span>
+        {{quotation.sentence}}<br/>
+        <span class="blue-text">{{quotation.author}}</span>
+      </p>
+    </ng-container>
+  </div>
+</div>

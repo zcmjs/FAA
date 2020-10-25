@@ -1,0 +1,21 @@
+<button class="btn-floating teal add-button">
+  <i class="material-icons" (click)="show()">add</i>
+</button>
+
+<div class="row">
+<!--  inny sposób emitowania danych-->
+  <button class="btn" (click)="stringEvent.emit('Macoń! Macoń!')" >String event</button>
+  <button class="btn" (click)="voidEvent.emit()" >void event</button>
+</div>
+
+<div class="row" [class.edit-row]="showForm">
+  <div class="input-field col s4">
+    <input [(ngModel)]="quotation.author" type="text" placeholder="Autor"/>
+  </div>
+  <div class="input-field col s6">
+    <input [(ngModel)]="quotation.sentence" type="text" placeholder="Cytat"/>
+  </div>
+  <div class="input-field col s2">
+    <button class="btn small" (click)="addQuotation()">Dodaj</button>
+  </div>
+</div>

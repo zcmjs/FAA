@@ -1,0 +1,13 @@
+.edit-row {
+  transition: 0.5s ease-in-out;
+  transform: translateX(-200%);
+}
+
+.add-button {
+  position: absolute !important;
+  right: 0;
+  top: -22px;
+}
+.mr-5 {
+  margin-right: 5px;
+}
