@@ -6,17 +6,21 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {FormComponent} from './form/form.component';
 import {ChildReferenceTrainingComponent} from './child-reference-training/child-reference-training.component';
 import {RankingComponent} from './ranking/ranking.component';
+import { DynamicButtonComponent } from './dynamic-button/dynamic-button.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FormComponent,d
+    FormComponent,
     ChildReferenceTrainingComponent,
-    RankingComponent
+    RankingComponent,
+    DynamicButtonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

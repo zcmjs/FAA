@@ -1,6 +1,10 @@
-<button class="btn-floating teal add-button">
-  <i class="material-icons" (click)="show()">add</i>
-</button>
+
+<!--Przykład projekcji ng-content co zostanie wstawione pomiędzy, zostanie wyswietlone w ng-content -->
+<!--customCss nie trzeba używać nawiasów kwadratowych, bo przesyłam stała wartość string-->
+<!--https://stackblitz.com/github/ZacznijProgramowac/ng-template-examples bardziej rozbudowane przykłądy ng-content-->
+<app-dynamic-button customCss="btn-floating teal add-button" (clickButton)="show()">
+  <i class="material-icons">add</i>
+</app-dynamic-button>
 
 <div class="row">
 <!--  inny sposób emitowania danych-->
