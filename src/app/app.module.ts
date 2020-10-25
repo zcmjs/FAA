@@ -11,6 +11,3 @@ import {FormsModule} from '@angular/forms';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-//FormsModule jest potrzebne aby używać ngModel
-//NGModel to połączenie eventBinding i PropertyBinding
