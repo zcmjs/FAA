@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "format": "prettier --write --config ./.prettierrc src/**/*{.ts,.js,.json,.css,.html}"
+    "format": "prettier --write --config ./.prettierrc src/**/*{.ts,.js,.json,.css,.html}",
+    "dev": "ng serve --proxy-config proxy.conf.json & json-server --port 2137 --delay 1000 --watch db.json",
+    "odpalanieDEV": "odpalanie dev - npm run dev"
   },
   "private": true,
   "dependencies": {
