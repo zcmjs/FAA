@@ -1,1 +1,4 @@
-<p>right works!</p>
+<h1>Subject - Async</h1>
+<ul>
+  <li *ngFor="let person of persons | async">{{person.firstName}} - {{person.lastName}}</li>
+</ul>
