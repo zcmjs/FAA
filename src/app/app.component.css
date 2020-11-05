@@ -9,7 +9,7 @@ img {
   margin: 0 -5px; /* remove the inital 5px space */
   width: auto;
 }
-.grid__item {
+.grid_item {
   max-width: 234px;
   padding: 0 5px; /* should be same as the negative margin above. */
 }

@@ -10,10 +10,11 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, MovieCoverComponent, CategoriesComponent, MoviesInCategoryComponent, PageNotFoundComponent, MoviesComponent, MovieDetailsComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
