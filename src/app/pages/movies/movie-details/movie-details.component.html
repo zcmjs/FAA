@@ -1,4 +1,6 @@
 <div class="row" *ngIf="movieDetails | async as movie">
+  <button class="btn" (click)="updatePartMovie()"> UPDATE 1</button>
+  <button class="btn" (click)="headers()"> SEND WITH HEADERS</button>
   <div class="col s4"><img [src]="movie.poster" /></div>
   <table class="col s8">
     <tbody>

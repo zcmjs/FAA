@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { Observable } from 'rxjs';
-import { Movie } from 'src/app/model/Movie';
-import { HttpService } from 'src/app/services/http.service';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
+import {Observable} from 'rxjs';
+import {Movie} from 'src/app/model/Movie';
+import {HttpService} from 'src/app/services/http.service';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-details',
@@ -29,6 +29,20 @@ export class MovieDetailsComponent implements OnInit {
     )
   }
 
+  updatePartMovie() {
+    //Gdy posiadamy interfejs, ktory zawiera pola obowiazkowe, to żeby nie dodawać w kazdym polu w interfejsie przy zmiennej dać ?(jako pole opcjonalne), to wstawia sie partiale
+    const movie: Partial<Movie> = {
+      id: '1',
+      plot: 'Gerald Szuka maconia'
+    };
+
+    this.http.patchMovie(movie).subscribe();
+  }
+
+  headers() {
+    this.http.headers().subscribe();
+  }
+
   goToMovies() {
     // this.router.navigate(['/movies']);
     this.location.back();
@@ -47,5 +61,4 @@ export class MovieDetailsComponent implements OnInit {
 // - oprócz routerLink możemy użyć metody navigate z serwisu Router. Serwis ten służy do nawigacji po routingu.
 //
 // - serwis location może nam posłużyć do poruszania się pomiędzy odwiedzanymi stronami.
-
 }
