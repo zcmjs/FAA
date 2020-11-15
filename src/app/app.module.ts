@@ -11,14 +11,15 @@ import { MoviesComponent } from './pages/movies/movies.component';
 import { MovieDetailsComponent } from './pages/movies/movie-details/movie-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { AddMovieComponent } from './pages/movies/add-movie/add-movie.component';
 
 @NgModule({
-  declarations: [AppComponent, MovieCoverComponent, CategoriesComponent, MoviesInCategoryComponent, PageNotFoundComponent, MoviesComponent, MovieDetailsComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
+  declarations: [AppComponent, MovieCoverComponent, CategoriesComponent, MoviesInCategoryComponent, PageNotFoundComponent, MoviesComponent, MovieDetailsComponent, AddMovieComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
 
-//FormsModule jest potrzebne aby używać ngModel
+//FormsModule jest potrzebne aby używać ngModel czy też obsługę formularza, jak pole input
 //NGModel to połączenie eventBinding i PropertyBinding

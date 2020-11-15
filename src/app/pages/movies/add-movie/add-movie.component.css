@@ -1,0 +1,5 @@
+ /*gdy wejdziemy w pole i z niego wyjdziemy pojawi się klasa .ng-touched*/
+
+.ng-invalid.ng-touched:not(form) {
+  border-left: 5px solid red;
+}

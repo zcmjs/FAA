@@ -1,0 +1,73 @@
+<div class="grid">
+<!--  Z formularza wyciągamy obiekt ngFork i przypisujemy go do template referance o nazwie form-->
+  <form #form="ngForm" class="container" (ngSubmit)="send()">
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="title"
+               type="text"
+               [(ngModel)]="model.title"
+               name="title"
+               minlength="3"
+               (input)="printModel(title)"
+               #title="ngModel" required />
+        <label for="title">Title</label>
+        <ng-container *ngIf="title.invalid && title.touched">
+          <div class="card-panel red darken-1" *ngIf="title.errors.required">
+            Failed required
+          </div>
+          <div class="card-panel red darken-1" *ngIf="title.errors.minlength">
+            Failed MinLength
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <select class="browser-default" [(ngModel)]="model.year" name="year" required>
+<!--          ngValue odpowiada za to co zostanie przekazane do modelu-->
+          <option *ngFor="let year of years" [ngValue]="year">{{year}} </option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <select class="browser-default" [(ngModel)]="model.category" name="category" required>
+          <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="director" type="text" [(ngModel)]="model.director" name="director" required />
+        <label for="director">Director</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="plot" type="text" [(ngModel)]="model.plot" name="plot" required/>
+        <label for="plot">Plot</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="country" type="text" [(ngModel)]="model.country" name="country" required/>
+        <label for="country">Country</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="imdb" type="text" [(ngModel)]="model.imdbRating" name="imdbRating" required/>
+        <label for="imdb">IMDB Rating</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8">
+        <input id="poster" type="text" [(ngModel)]="model.poster" name="poster"/>
+        <label for="poster">Poster</label>
+      </div>
+    </div>
+    <button class="btn-small" type="submit" [disabled]="form.invalid">Send</button>
+    <button class="btn-small red" type="reset">Reset</button>
+  </form>
+</div>
+

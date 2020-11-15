@@ -12,6 +12,10 @@ export class HttpService {
   constructor(private httpClient: HttpClient) {
   }
 
+  saveMovie(movie: Movie): Observable<Movie> {
+    return this.httpClient.post<Movie>('/api/movies', movie);
+  }
+
   getMovies(): Observable<Movie[]> {
     //Operator tap nie ingeruję w obiekt przechodzący przez obserwable. Można go wykorzystac w debagowania
     return this.httpClient.get<Movie[]>('/api/movies').pipe(tap(console.log));
